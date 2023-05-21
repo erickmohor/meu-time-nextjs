@@ -1,20 +1,20 @@
 import { api } from './api'
 
-import { seasonsMock } from '@/mocks/seasonsMock'
+// import { seasonsMock } from '@/mocks/seasonsMock'
 
 export async function getSeasons() {
 
-  return seasonsMock
+  // return seasonsMock
 
-  // try {
-  //   const { data, status } = await api.get('/leagues/seasons')
+  try {
+    const { data, status } = await api.get('/leagues/seasons')
       
-  //   if (status === 200 && data?.response) {
-  //     return data.response
-  //   }
-  // } catch (error) {
-  //   console.log(error)
-  //   return []
-  // }
+    if (status === 200 && data?.response) {
+      return data.response
+    }
+  } catch (error) {
+    console.log(error)
+    return []
+  }
 
 }
