@@ -63,7 +63,9 @@ export default function Login() {
               onChange={event => setApiKey(event.target.value)}
             />
             <Button
-              name='Entrar'
+              key='submit'
+              name='submit'
+              text='Entrar'
               disabled={isLoading}
               loading={isLoading}
               type="submit"
