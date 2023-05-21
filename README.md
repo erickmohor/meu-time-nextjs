@@ -1,7 +1,7 @@
 # Prévia
-![Tela de Login](image_preview/my-preview_login.png)
-![Tela de Informações 1](image_preview/my-preview_information1.png)
-![Tela de Informações 2](image_preview/my-preview_information2.png)
+![Tela de Login](image_preview/preview_login.png)
+![Tela de Informações 1](image_preview/preview_information1.png)
+![Tela de Informações 2](image_preview/preview_information2.png)
 
 
 # Descrição do projeto
