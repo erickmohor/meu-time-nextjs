@@ -125,16 +125,19 @@ export default function Information() {
 
   async function handleGetPlayers(teamId: number) {
     setIsLoadingMenu(true)
+    setIsLoadingData(true)
 
     if (teamId && season && league?.league?.id) {
       setPlayers(await getPlayers(teamId, season, league.league.id))
     }
 
+    setIsLoadingData(false)
     setIsLoadingMenu(false)
   }
 
   async function handleTeamsStatistics(teamId: number) {
     setIsLoadingMenu(true)
+    setIsLoadingData(true)
 
     if (teamId && season && league?.league?.id) {
       const statisticsResponse = await getTeamsStatistics(teamId, season, league.league.id)
@@ -164,6 +167,7 @@ export default function Information() {
       setTeamsStatisticsLineUp(lineUpWithHigherPlayedNumber)
     }
 
+    setIsLoadingData(false)
     setIsLoadingMenu(false)
   }
 
@@ -180,6 +184,8 @@ export default function Information() {
           <ContentContainer title='Menu'>
 
             <Select
+              key='country'
+              name='country'
               label='País'
               disabled={isLoadingMenu}
               onChange={(event) => handleSelectedCountry(event.target.value)}
@@ -194,6 +200,8 @@ export default function Information() {
 
             <form ref={formRef}>
               <Select
+                key='season'
+                name='season'
                 label='Temporada'
                 disabled={isLoadingMenu}
                 onChange={(event) => handleGetLeagues(event.target.value)}
@@ -208,6 +216,8 @@ export default function Information() {
             </form>
 
             <Select
+              key='league'
+              name='league'
               label='Liga'
               disabled={isLoadingMenu}
               onChange={(event) => {
@@ -232,6 +242,8 @@ export default function Information() {
             </Select>
 
             <Select
+              key='team'
+              name='team'
               label='Time'
               disabled={isLoadingMenu}
               onChange={(event) => {
