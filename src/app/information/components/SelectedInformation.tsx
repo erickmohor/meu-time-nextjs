@@ -20,12 +20,11 @@ export function SelectedInformation({ country, season, league, team }: SelectedI
         {
           country?.name ? (
             <div className='flex flex-col gap-2'>
-              <h1 className='text-lg text-stone-300'>País:</h1>
-              <div className='flex justify-center items-center gap-5'>
+              <h1 className='text-lg text-stone-300 mb-1'>País:</h1>
+              <div className='flex flex-col justify-center items-center gap-1'>
                 <Image className='rounded' src={country.flag} alt='country flag' width={56} height={56} />
                 <span className='text-md text-stone-100'>{country.name}</span>
               </div>
-
             </div>
           ) : (
             <h1 className='text-lg text-stone-300'>Selecione as opções ao lado</h1>
@@ -35,7 +34,7 @@ export function SelectedInformation({ country, season, league, team }: SelectedI
         {
           season && (
             <div className='flex flex-col gap-2'>
-              <h1 className='text-lg text-stone-300'>Temporada: </h1>
+              <h1 className='text-lg text-stone-300 mb-1'>Temporada: </h1>
               <span className='text-md text-stone-100'>{season}</span>
             </div>
           )
@@ -44,8 +43,11 @@ export function SelectedInformation({ country, season, league, team }: SelectedI
         {
           league && (
             <div className='flex flex-col gap-2'>
-              <h1 className='text-lg text-stone-300'>Liga: </h1>
-              <span className='text-md text-stone-100'>{league.league.name}</span>
+              <h1 className='text-lg text-stone-300 mb-1'>Liga: </h1>
+              <div className='flex flex-col justify-center items-center gap-1'>
+                <Image className='rounded bg-white' src={league.league.logo} alt='country flag' width={42} height={42} unoptimized />
+                <span className='text-md text-stone-100'>{league.league.name}</span>
+              </div>
             </div>
           )
         }
@@ -53,8 +55,15 @@ export function SelectedInformation({ country, season, league, team }: SelectedI
         {
           team && (
             <div className='flex flex-col gap-2'>
-              <h1 className='text-lg text-stone-300'>Time: </h1>
-              <span className='text-md text-stone-100'>{team.team.name}</span>
+              <h1 className='text-lg text-stone-300 mb-1'>Time: </h1>
+              <div className='flex flex-col justify-center items-center gap-1'>
+                {
+                  team?.team?.logo !== null && (
+                    <Image className='rounded' src={team.team.logo} alt='country flag' width={42} height={42} unoptimized />
+                  )
+                }
+                <span className='text-md text-stone-100'>{team.team.name}</span>
+              </div>
             </div>
           )
         }
